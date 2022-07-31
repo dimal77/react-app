@@ -1,51 +1,26 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars} from "@fortawesome/free-solid-svg-icons";
 import CartWidget from "./CartWidget";
 
 function NavBar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
-      <div className="container">
-        <a className="navbar-brand" href="#!">
-          <span>Tecnology</span>
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i>
-            <FontAwesomeIcon icon={faBars} />
-          </i>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#!">
-                Nosotros
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#!">
-                Productos
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#!">
-                Contacto
-              </a>
-            </li>
-          </ul>
-          <CartWidget/>
-        </div>
+    <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Tecnology</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Nosotros</a>
+        <a class="nav-link" href="#">Productos</a>
+        <a class="nav-link" href="#">Contacto</a>
       </div>
-    </nav>
-  );
+      <CartWidget/>
+    </div>
+  </div>
+</nav>
+);
 }
 
 export default NavBar;
