@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { faBars} from "@fortawesome/free-solid-svg-icons";
+import CartWidget from "./CartWidget";
 
 function NavBar() {
   return (
@@ -40,20 +41,7 @@ function NavBar() {
               </a>
             </li>
           </ul>
-          <ul className="navbar-nav d-flex flex-row">
-            <li className="nav-item me-3 me-lg-0">
-              <a className="nav-link" href="#!">
-                <i className="fas fa-shopping-cart"></i>
-              </a>
-            </li>
-            <li className="nav-item me-3 me-lg-0">
-              <a className="nav-link" href="#!">
-                <i>
-                  <FontAwesomeIcon icon={faCartPlus} />
-                </i>
-              </a>
-            </li>
-          </ul>
+          <CartWidget/>
         </div>
       </div>
     </nav>
