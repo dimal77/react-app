@@ -1,4 +1,5 @@
 import "./App.css";
+import ItemCount from "./components/ItemCount";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 
@@ -13,6 +14,7 @@ function App() {
           <ItemListContainer saludo="Hola Mundo"></ItemListContainer>
         </h1>
       </div>
+      <ItemCount initial={1} stock={20}/>
     </div>
   );
 }
