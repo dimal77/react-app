@@ -25,17 +25,8 @@ const ItemListContainer = () =>{
   return (
     <div>
       <h1>Hola Mundo</h1>
-      <div className="d-flex flex-row">
-        {dataproduct.map((unitProduct) => {
-          return (
-            <Items
-              product={unitProduct.product}
-              marca={unitProduct.marca}
-              precio={unitProduct.precio}
-              imagen={unitProduct.imagen}
-            />
-          );
-        })}
+      <div className="d-flex flex-row" style={{flexWrap:"wrap"}} >
+        <ItemList data={dataproduct} />
       </div>
     </div>
   );

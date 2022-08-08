@@ -1,7 +1,7 @@
 import React from 'react'
 import Items from './Items';
 
-function ItemList(data) {
+function ItemList({data}) {
   return (
     <>
       {data.map((unitProduct) => {
