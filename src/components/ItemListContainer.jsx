@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import data from './data/data.js';
 import ItemList from './ItemList';
-import Items from './Items';
+
 
 function getProductos (){
   return new Promise((resolve)=>{

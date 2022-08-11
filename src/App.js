@@ -1,4 +1,5 @@
 import "./App.css";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 
@@ -10,6 +11,7 @@ function App() {
       </header>
       <div className="Body">
         <ItemListContainer/>
+        <ItemDetailContainer item={0}/>
       </div>
     </div>
   );
