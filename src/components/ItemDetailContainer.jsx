@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import data from "./data/data.js";
 import ItemDetail from "./ItemDetail.jsx";
+import { useParams } from "react-router-dom";
 
-function getDetalle() {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(data[0]), 2000);
-  });
-}
 
 function ItemDetailContainer() {
+    const idParam = useParams().id;
+    console.log(idParam);
+
+  function getDetalle() {
+    return new Promise((resolve) => {
+      setTimeout(() => resolve(data[{idParam}]), 2000);
+    });
+  }
+ 
   const [dataitem, setItem] = useState([]);
 
   useEffect(() => {
