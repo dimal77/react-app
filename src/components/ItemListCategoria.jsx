@@ -4,7 +4,7 @@ import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
 
 
-const ItemListContainer = () =>{
+const ItemListCategoria = () =>{
   const [dataproduct, setData] = useState([]);
   const idCategoria = useParams().categoria;
   console.log(idCategoria);
@@ -24,15 +24,15 @@ const ItemListContainer = () =>{
     });
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getProductos()
       .then((respuesta) => {
-        setData(respuesta)
+        setData(respuesta);
       })
       .catch((error) => {
         console.log(error);
       });
-  },[]);
+  }, [idCategoria]);
 
   return (
     <div>
@@ -44,4 +44,4 @@ const ItemListContainer = () =>{
   );
 }
 
-export default ItemListContainer
+export default ItemListCategoria;
