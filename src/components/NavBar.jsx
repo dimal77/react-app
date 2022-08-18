@@ -28,23 +28,23 @@ function NavBar() {
             <NavLink
               style={{ marginRight: "20px" }}
               className="navLink"
-              to="/0"
+              to="/categoria/pc"
             >
-              DETALLE 1
+              PC's
             </NavLink>
             <NavLink
               style={{ marginRight: "20px" }}
               className="navLink"
-              to="/1"
+              to="/categoria/pantallas"
             >
-              DETALLE 2
+              Pantallas
             </NavLink>
             <NavLink
               style={{ marginRight: "20px" }}
               className="navLink"
-              to="/2"
+              to="/categoria/accesorios"
             >
-              DETALLE 3
+              Accesorios
             </NavLink>
           </div>
           <CartWidget />

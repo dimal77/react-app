@@ -9,8 +9,12 @@ function ItemDetailContainer() {
   console.log(idParam);
 
   function getDetalle() {
-    return new Promise((resolve) => {
-      resolve(data[idParam])
+    return new Promise((resolve,reject) => {
+      let producto = data.find((producto) => producto.id == idParam);
+      if (producto === undefined) 
+        reject ("No se encontró el producto");
+      else
+        resolve(producto);  
     });
   }
  
@@ -22,7 +26,7 @@ function ItemDetailContainer() {
         setItem(respuesta);
       })
       .catch((error) => {
-        console.log(error);
+        alert(error);
       });
   }, []);
 

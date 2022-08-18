@@ -1,8 +1,9 @@
 import React from 'react'
-import ItemCount from '../components/ItemCount.jsx';
+import { Link } from 'react-router-dom';
 
 
-function Items({marca,precio,imagen,product}) {
+
+function Items({id,marca,precio,imagen,product}) {
   return (
     <div style={{marginLeft: "10px",}}>
           <div className="card" style={{  width: "255px",
@@ -18,12 +19,7 @@ function Items({marca,precio,imagen,product}) {
               <h4 className="card-title">{product}</h4>
               <p>{marca}</p>
               <p>{precio}</p>
-              <div >
-                <ItemCount initial={1} stock={20} />
-                <a href="#" className="btn btn-primary mx-auto">
-                  Comprar
-                </a>
-              </div>
+              <Link to={`/${id}`}> Ver más </Link>
             </div>
           </div>
     </div>
