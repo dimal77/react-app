@@ -12,7 +12,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
-            <Route path="/detalle/:id" element={<ItemDetailContainer />} />
+            <Route path="/:id" element={<ItemDetailContainer />} />
             <Route path="*" element={<h1>404: No encontrado</h1>} />
           </Routes>
         

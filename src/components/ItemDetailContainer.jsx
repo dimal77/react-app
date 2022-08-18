@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 
 
 function ItemDetailContainer() {
-    const idParam = useParams().id;
-    console.log(idParam);
+  const idParam = useParams().id;
+  console.log(idParam);
 
   function getDetalle() {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(data[{idParam}]), 2000);
+      resolve(data[idParam])
     });
   }
  
