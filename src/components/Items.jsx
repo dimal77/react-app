@@ -8,7 +8,7 @@ function Items({id,marca,precio,imagen,product}) {
     <div style={{marginLeft: "10px",}}>
           <div className="card" style={{  width: "255px",
             }}>
-            <img src={imagen} className="card-img-top mx-auto"
+            <img src={`/${imagen}`} className="card-img-top mx-auto"
               alt="PC"
               style={{
                 width: "250px",
