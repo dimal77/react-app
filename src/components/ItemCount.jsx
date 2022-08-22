@@ -1,22 +1,36 @@
 import React, { useState } from "react";
 
 function ItemCount(props) {
-  const [clicks, setClicks] = useState(props.initial);
-  console.log(props.stock);
+  const stock = props.inventory;
+  const [count, setCount] = useState(1);
 
-  const incrementa = () =>
-    clicks < props.stock ? setClicks(clicks + 1) : setClicks(clicks);
-  const decremanta = () =>
-    clicks > 1 ? setClicks(clicks - 1) : setClicks(clicks);
+  function increase() {
+    setCount(count + 1);
+  }
+  function decrease() {
+  if (count > 1) {
+    setCount(count - 1);
+  }
+}
 
   return (
-    <div style={{ marginBottom: "2px" }}>
-      <button onClick={decremanta} className="btn btn-primary">
-        &nbsp;- &nbsp;{" "}
-      </button>
-      <span>&nbsp;&nbsp;{clicks}&nbsp;&nbsp;</span>
-      <button onClick={incrementa} className="btn btn-primary">
-        &nbsp;+ &nbsp;
+    <div>
+      <div className="counter">
+        <button onClick={decrease} className="btnCounter">
+          {" "}
+          -{" "}
+        </button>
+        <h4 className="counterVisual"> {count} </h4>
+        <button
+          onClick={count < stock ? increase : null}
+          className="btnCounter"
+        >
+          {" "}
+          +{" "}
+        </button>
+      </div>
+      <button onClick={() => props.onAdd(count)} id="btnAddToCart">
+        Add to cart
       </button>
     </div>
   );

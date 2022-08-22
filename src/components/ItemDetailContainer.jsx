@@ -37,6 +37,8 @@ function ItemDetailContainer() {
         marca={dataitem.marca}
         precio={dataitem.precio}
         imagen={dataitem.imagen}
+        stock={dataitem.stock}
+        id={dataitem.id}
       />
     </div>
   );
