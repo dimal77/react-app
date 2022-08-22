@@ -1,14 +1,15 @@
 import React from 'react';
 import ItemCount from './ItemCount';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {cartContext} from "../components/store/cartContext";
 
 
 function ItemDetail({ marca, precio, imagen, product, stock,id}) {
-    const quantityInCart = 0;
+    const [quantityInCart,setQuantityInCart] = useState(0);
     const {addToCart} = useContext(cartContext);
 
       function handleAdd(quantity) {
+        setQuantityInCart(quantity);
         const itemToCart = { marca, precio, imagen, product, stock,id };
         addToCart(itemToCart, quantity);
       }
@@ -31,7 +32,9 @@ function ItemDetail({ marca, precio, imagen, product, stock,id}) {
           <p>{precio}</p>
         </div>
         <div className="itemView-quantity">
+          {quantityInCart === 0 ? (
           <ItemCount inventory={stock} onAdd={handleAdd} initial ={1}/>
+          ) : ( <a href="/cart">Ir al Carrito</a>)}
         </div>
       </div>
     </div>

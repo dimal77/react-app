@@ -16,8 +16,12 @@ export function CartProvider({ children }) {
     let copyCart = [...cart];
     copyCart.push({...item, quantity:quantity});
     setCart(copyCart);
+    }
   }
-}
+
+  function removeToCard(item){
+  setCart(cart.filter(itemInCart=>itemInCart.id!==item.id));
+  }/*Por ahora no lo uso, recien cuando tenga pagina carrito*/
 
   return (
     <cartContext.Provider value={{ cart, addToCart }}>
