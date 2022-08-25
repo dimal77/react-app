@@ -17,7 +17,7 @@ export function CartProvider({ children }) {
     }
   }
 
-  function removeToCard(item) {
+  function removeToCart(item) {
     setCart(cart.filter((itemInCart) => itemInCart.id !== item.id));
   } /*Por ahora no lo uso, recien cuando tenga pagina carrito*/
 
@@ -30,7 +30,7 @@ export function CartProvider({ children }) {
   }
 
   return (
-    <cartContext.Provider value={{ cart, addToCart }}>
+    <cartContext.Provider value={{ cart, addToCart, removeToCart, updateToCart }}>
       {children}
     </cartContext.Provider>
   );
