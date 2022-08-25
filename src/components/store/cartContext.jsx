@@ -9,19 +9,25 @@ export function CartProvider({ children }) {
     console.log("ok");
     console.log(item, quantity);
 
-    if(cart.some(itemInCart=>itemInCart.id===item.id)){
-
-    }
-    else{
-    let copyCart = [...cart];
-    copyCart.push({...item, quantity:quantity});
-    setCart(copyCart);
+    if (cart.some((itemInCart) => itemInCart.id === item.id)) {
+    } else {
+      let copyCart = [...cart];
+      copyCart.push({ ...item, quantity: quantity });
+      setCart(copyCart);
     }
   }
 
-  function removeToCard(item){
-  setCart(cart.filter(itemInCart=>itemInCart.id!==item.id));
-  }/*Por ahora no lo uso, recien cuando tenga pagina carrito*/
+  function removeToCard(item) {
+    setCart(cart.filter((itemInCart) => itemInCart.id !== item.id));
+  } /*Por ahora no lo uso, recien cuando tenga pagina carrito*/
+
+  function updateToCart(Item, quantity) {
+    setCart(
+      cart.map((item) =>
+        item.id == Item.id ? { ...Item, quantity: quantity } : item
+      )
+    );
+  }
 
   return (
     <cartContext.Provider value={{ cart, addToCart }}>
