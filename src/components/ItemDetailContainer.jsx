@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import data from "./data/data.js";
 import ItemDetail from "./ItemDetail.jsx";
 import { useParams } from "react-router-dom";
+import firestoredb from "../services/firebase";
+import { getDoc, collection, query, where, doc } from "firebase/firestore";
 
 
 function ItemDetailContainer() {
-  const idParam = useParams().id;
-  console.log(idParam);
+  const {id} = useParams();
+  console.log(id);
 
-  function getDetalle() {
+/*  function getDetalle() {
     return new Promise((resolve,reject) => {
       let producto = data.find((producto) => producto.id == idParam);
       if (producto === undefined) 
@@ -16,12 +18,25 @@ function ItemDetailContainer() {
       else
         resolve(producto);  
     });
-  }
- 
+  }*/
+
+    function getDetalle(id) {
+      return new Promise((resolve) => {
+        const preyectoCollection = collection(firestoredb, "tecno");
+        const docRef = doc(preyectoCollection, id);
+        
+        getDoc(docRef).then((snapshot) => {
+          resolve(
+            {...snapshot.data(), id: snapshot.id});
+        });
+      });
+    }
+
+
   const [dataitem, setItem] = useState([]);
 
   useEffect(() => {
-    getDetalle()
+    getDetalle(id)
       .then((respuesta) => {
         setItem(respuesta);
       })

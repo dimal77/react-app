@@ -6,8 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemListCategoria from "./components/ItemListCategoria";
 import { CartProvider } from "./components/store/cartContext";
 import CartContainer from "./components/CartContainer";
+import firestoredb from "./services/firebase";
 
 function App() {
+  console.log(firestoredb);
   return (
     <div className="App">
       <BrowserRouter>

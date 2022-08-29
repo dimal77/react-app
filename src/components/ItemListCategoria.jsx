@@ -2,14 +2,15 @@ import React, {useEffect, useState} from 'react';
 import data from './data/data.js';
 import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
+import firestoredb from "../services/firebase";
+import {getDocs, collection, query, where} from 'firebase/firestore';
 
-
-const ItemListCategoria = () =>{
+const ItemListCategoria = () => {
   const [dataproduct, setData] = useState([]);
   const idCategoria = useParams().categoria;
   console.log(idCategoria);
 
-  function getProductos() {
+/*  function getProductos() {
     return new Promise((resolve) => {
       setTimeout(() => {
         if (idCategoria === undefined) {
@@ -21,6 +22,19 @@ const ItemListCategoria = () =>{
           resolve(filtrado);
         }
       }, 500);
+    });
+  }*/
+
+  function getProductos() {
+    return new Promise((resolve) => {
+      const preyectoCollection = collection(firestoredb, "tecno");
+      const q = query(preyectoCollection, where("categoria", "==", idCategoria));
+      getDocs(q).then((snapshot) => {
+        const docsData = snapshot.docs.map((doc) => {
+          return { ...doc.data(), id: doc.id };
+        });
+        resolve(docsData);
+      });
     });
   }
 
@@ -37,11 +51,11 @@ const ItemListCategoria = () =>{
   return (
     <div>
       <h1>Encontra acá los mejores productos</h1>
-      <div className="d-flex flex-row" style={{flexWrap:"wrap"}} >
+      <div className="d-flex flex-row" style={{ flexWrap: "wrap" }}>
         <ItemList data={dataproduct} />
       </div>
     </div>
   );
-}
+};
 
 export default ItemListCategoria;
