@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import data from "./data/data.js";
+import React, { useEffect, useState, useContext } from "react";
 import ItemDetail from "./ItemDetail.jsx";
 import { useParams } from "react-router-dom";
 import firestoredb from "../services/firebase";
 import { getDoc, collection, query, where, doc } from "firebase/firestore";
-
+import { cartContext } from "../components/store/cartContext";
 
 function ItemDetailContainer() {
   const {id} = useParams();

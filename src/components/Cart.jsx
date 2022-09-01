@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import { cartContext} from "./store/cartContext";
 
 function Cart({ precio, imagen, product, stock, id, cant}) {
+  console.log("Llegue al CART")
+  console.log(id,cant)
   const [quantity, setQuantity] = useState(cant);
   let total = precio * quantity;
   let ID = id;

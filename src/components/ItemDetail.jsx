@@ -2,6 +2,7 @@ import React from 'react';
 import ItemCount from './ItemCount';
 import { useContext, useState } from "react";
 import {cartContext} from "../components/store/cartContext";
+import { Link } from 'react-router-dom';
 
 
 function ItemDetail({ marca, precio, imagen, product, stock,id}) {
@@ -34,7 +35,7 @@ function ItemDetail({ marca, precio, imagen, product, stock,id}) {
         <div className="itemView-quantity">
           {quantityInCart === 0 ? (
           <ItemCount inventory={stock} onAdd={handleAdd} initial ={1}/>
-          ) : ( <a href="/cart">Ir al Carrito</a>)}
+          ) : ( <Link to="/cart">Ir al Carrito</Link>)}
         </div>
       </div>
     </div>

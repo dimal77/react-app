@@ -1,19 +1,30 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 export const cartContext = createContext();
+export const useCartContext = () => useContext(cartContext);
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
   function addToCart(item, quantity) {
-    console.log("ok");
-    console.log(item, quantity);
-
-    if (cart.some((itemInCart) => itemInCart.id === item.id)) {
+    console.log(item,quantity);
+    const exist = cart.find((element) => element.id == item.id);
+    if (exist) {
+      console.log("Entre al IF");
+      setCart(
+        cart.map((element) =>
+          element.id == item.id
+            ? { ...exist, quantity: exist.quantity + quantity }
+            : element
+        )
+      );
     } else {
       let copyCart = [...cart];
       copyCart.push({ ...item, quantity: quantity });
       setCart(copyCart);
+      console.log("Entre al ELSE");
+      console.log(copyCart);
+      console.log(item, quantity);
     }
   }
 

@@ -3,7 +3,7 @@ import { cartContext } from "./store/cartContext";
 import Cart from "./Cart";
 
 function CartContainer(){
-  const { cart } = useContext(cartContext);
+  const { cart, addToCart } = useContext(cartContext);
   function ItemCart(producto){
     return(
       <Cart 
@@ -21,6 +21,7 @@ function CartContainer(){
   let cantidadTotal = 0;
   let precioTotal = 0;
   cart.map((item) => {
+    console.log("entre al map de cart_container")
     cantidadTotal = cantidadTotal + item.quantity;
     precioTotal = precioTotal + item.quantity * item.precio;
   });
