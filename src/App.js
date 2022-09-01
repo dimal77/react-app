@@ -7,12 +7,14 @@ import ItemListCategoria from "./components/ItemListCategoria";
 import { CartProvider } from "./components/store/cartContext";
 import CartContainer from "./components/CartContainer";
 import firestoredb from "./services/firebase";
+import { saveProductsToFirebase } from "./services/firebase";
 
 function App() {
   console.log(firestoredb);
   return (
     <div className="App">
       <BrowserRouter>
+        {/* <button onClick={saveProductsToFirebase}>Enviar Datos</button> */}
         <CartProvider>
           <NavBar />
           <Routes>

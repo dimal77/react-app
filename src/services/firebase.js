@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import data from ".././components/data/data";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -21,5 +22,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const firestoredb = getFirestore(app);
+
+
+
+// export async function saveProductsToFirebase(){
+//   const collectionProducts = collection(firestoredb, "tecno2");
+  
+//   for (let item of data){
+//     const docref = await addDoc(collectionProducts, item);
+//     console.log(docref.id)
+//   }
+// }
+
 
 export default firestoredb;
