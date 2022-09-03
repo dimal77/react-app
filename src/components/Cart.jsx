@@ -28,20 +28,30 @@ function Cart({ precio, imagen, product, stock, id, cant}) {
     updateToCart(itemUpdate, quantity);
   }
 
+const mystyle = {
+      paddingLeft: "5px",
+      paddingRight: "5px",
+      textAlign:"center"
+    };
+
   return (
-    <div>
-      <img src={imagen}></img>
-      <p>{product}</p>
-      <div>
-        <a onClick={RestarItem}>-</a>
-        <p>{quantity}</p>
-        <a onClick={quantity < stock ? SumarItem : null}>+</a>
-      </div>
-      <div>
+    <tr>
+      <td style={mystyle}>
+        <img src={imagen} height={50}></img>
+      </td>
+      <td style={mystyle}>{product}</td>
+      <td style={mystyle}>
+        <button onClick={RestarItem}>-</button>
+        &nbsp;&nbsp;{quantity}&nbsp;&nbsp;
+        <button onClick={quantity < stock ? SumarItem : null}>+</button>
+      </td>
+      <td style={mystyle}>
         <p> ${total} </p>
-        <p onClick={BorrarItem}> Borrar </p>
-      </div>
-    </div>
+      </td>
+      <td style={mystyle}>
+        <button onClick={BorrarItem}> &nbsp;&nbsp; X &nbsp;&nbsp;</button>
+      </td>
+    </tr>
   );
 }
 
