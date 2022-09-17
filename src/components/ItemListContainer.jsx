@@ -4,6 +4,7 @@ import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
 import firestoredb from "../services/firebase";
 import {getDocs, collection} from 'firebase/firestore';
+import { Banner } from './Banner.jsx';
 
 const ItemListContainer = () =>{
   const [dataproduct, setData] = useState([]);
@@ -41,12 +42,16 @@ const ItemListContainer = () =>{
   },[]);
 
   return (
-    <div>
-      <h1>Encontra acá los mejores productos</h1>
-      <div className="d-flex flex-row" style={{flexWrap:"wrap"}} >
-        <ItemList data={dataproduct} />
+    <>
+      <Banner />
+      <div class="container py-2">
+        <h1 className="h2 pb-4">Encontra el producto a tu medida!</h1>
+
+        <div className="row">
+            <ItemList data={dataproduct} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

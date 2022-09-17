@@ -8,6 +8,9 @@ import { CartProvider } from "./components/store/cartContext";
 import CartContainer from "./components/CartContainer";
 import firestoredb from "./services/firebase";
 import { saveProductsToFirebase } from "./services/firebase";
+import { Top } from "./components/Top";
+import { Banner } from "./components/Banner";
+import { Footer } from "./components/Footer";
 
 function App() {
   console.log(firestoredb);
@@ -15,8 +18,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {/* <button onClick={saveProductsToFirebase}>Enviar Datos</button> */}
+        <Top />
         <CartProvider>
           <NavBar />
+          
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route
@@ -28,6 +33,7 @@ function App() {
             <Route path="/cart" element={<CartContainer />} />
           </Routes>
         </CartProvider>
+        <Footer />
       </BrowserRouter>
     </div>
   );

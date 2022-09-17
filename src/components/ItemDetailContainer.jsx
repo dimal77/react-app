@@ -52,6 +52,7 @@ function ItemDetailContainer() {
         precio={dataitem.precio}
         imagen={dataitem.imagen}
         stock={dataitem.stock}
+        descripcion={dataitem.descripcion}
         id={dataitem.id}
       />
     </div>

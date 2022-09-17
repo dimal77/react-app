@@ -53,12 +53,17 @@ function CartContainer(){
 
 
   return (
-    <div>
+    <div className="container py-2">
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div>
-          <h2>Carrito de Compras</h2>
-          <table style={{ width: "90vw" }}>
-            <thead>
+          <br />
+          <div className="d-flex justify-content-between">
+            <h2>Tus Compras!</h2>
+            <Link to="/">Volver</Link>
+          </div>
+          <br />
+          <table style={{ width: "90vw" }} className="table">
+            <thead className="table-dark">
               <tr>
                 <th style={{ textAlign: "center" }}>Miniatura</th>
                 <th style={{ textAlign: "center" }}>Producto</th>
@@ -69,19 +74,19 @@ function CartContainer(){
             </thead>
             <tbody>{cart.map(ItemCart)}</tbody>
           </table>
-          <Link to="/">
-            <p>Volver</p>
-          </Link>
         </div>
-        <div>
-          <h5>TOTAL</h5>
-          <hr />
-          <div>
-            <div> Cantidad: {cantidadTotal} </div>
-            <div> Total: ${precioTotal} </div>
-          </div>
-          <div>
-            <button onClick={Enviar}>Enviar Pedido</button>
+        <div className="container-fluid">
+          <div className="d-flex flex-column align-items-end">
+            <h4>TOTAL</h4>
+            <p>
+              <strong>Cantidad:</strong> {cantidadTotal}
+            </p>
+            <p>
+              <strong>Total:</strong> $ {precioTotal}
+            </p>
+            <button onClick={Enviar} className="btn btn-success">
+              Enviar Pedido
+            </button>
           </div>
         </div>
       </div>

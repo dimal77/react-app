@@ -15,21 +15,25 @@ function ItemCount(props) {
 
   return (
     <div>
+      
       <div className="counter">
-        <button onClick={decrease} className="btnCounter">
-          {" "}
-          -{" "}
-        </button>
-        <h4 className="counterVisual"> {count} </h4>
+        <button onClick={decrease} className="btn btn-success">
+          -
+        </button>{" "}
+        <strong>{count} </strong>
         <button
           onClick={count < stock ? increase : null}
-          className="btnCounter"
+          className="btn btn-success"
         >
-          {" "}
-          +{" "}
+          +
         </button>
       </div>
-      <button onClick={() => props.onAdd(count)} id="btnAddToCart">
+      <br></br>
+      <button
+        onClick={() => props.onAdd(count)}
+        id="btnAddToCart"
+        className="btn btn-success"
+      >
         Add to cart
       </button>
     </div>

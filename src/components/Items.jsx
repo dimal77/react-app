@@ -1,29 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-
-
 function Items({id,marca,precio,imagen,product}) {
   return (
-    <div style={{marginLeft: "10px",}}>
-          <div className="card" style={{  width: "255px",
-            }}>
-            <img src={`/${imagen}`} className="card-img-top mx-auto"
-              alt="PC"
-              style={{
-                width: "250px",
-                height: "250px",
-              }}
-            />
-            <div className="card-body">
-              <h4 className="card-title">{product}</h4>
-              <p>{marca}</p>
-              <p>{precio}</p>
-              <Link to={`/${id}`}> Ver más </Link>
+        <>
+          <div class="col-4">
+            <div className="card mb-4 product-wap rounded-0">
+                <div className="" style={{ margin: "0 auto" }}>
+                    <img 
+                      className="card-img rounded-0 img-fluid" 
+                      src={`/${imagen}`} 
+                      alt="PC" 
+                      style={{
+                        width: "250px",
+                        height: "280px",
+                      }}/>
+                </div>
+                <div className="card-body text-center back-white">
+                    <h3 href="shop-single.html" className="h3 text-decoration-none">{ product }</h3>
+                      <p><strong>Marca: </strong>{ marca } <br />
+                      <strong>Precio: </strong>${ precio }</p>
+                    
+                      <Link type='buttom' to={`/${id}`} className="btn btn-success btn-lg px-3 text-white">Ver más</Link>  
+                </div>
             </div>
           </div>
-    </div>
+        </>
   );
 }
 
 export default Items
+

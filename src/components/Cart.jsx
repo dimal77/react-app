@@ -41,15 +41,31 @@ const mystyle = {
       </td>
       <td style={mystyle}>{product}</td>
       <td style={mystyle}>
-        <button onClick={RestarItem}>-</button>
+        <button
+          onClick={RestarItem}
+          className="btn btn-success btn-circle btn-sm"
+        >
+          -
+        </button>
         &nbsp;&nbsp;{quantity}&nbsp;&nbsp;
-        <button onClick={quantity < stock ? SumarItem : null}>+</button>
+        <button
+          onClick={quantity < stock ? SumarItem : null}
+          className="btn btn-success btn-circle btn-sm"
+        >
+          +
+        </button>
       </td>
       <td style={mystyle}>
         <p> ${total} </p>
       </td>
       <td style={mystyle}>
-        <button onClick={BorrarItem}> &nbsp;&nbsp; X &nbsp;&nbsp;</button>
+        <button
+          onClick={BorrarItem}
+          className="btn btn-secondary btn-circle btn-sm"
+        >
+          {" "}
+          &nbsp;&nbsp; X &nbsp;&nbsp;
+        </button>
       </td>
     </tr>
   );
