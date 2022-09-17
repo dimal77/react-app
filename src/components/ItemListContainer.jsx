@@ -44,7 +44,7 @@ const ItemListContainer = () =>{
   return (
     <>
       <Banner />
-      <div class="container py-2">
+      <div className="container py-2">
         <h1 className="h2 pb-4">Encontra el producto a tu medida!</h1>
 
         <div className="row">

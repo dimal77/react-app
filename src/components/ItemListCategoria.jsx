@@ -49,9 +49,11 @@ const ItemListCategoria = () => {
   }, [idCategoria]);
 
   return (
-    <div>
-      <h1>Encontra acá los mejores productos</h1>
-      <div className="d-flex flex-row" style={{ flexWrap: "wrap" }}>
+    <div className="container py-2">
+      <h1 className="h2 pb-4">
+        {idCategoria}
+      </h1>
+      <div className="row">
         <ItemList data={dataproduct} />
       </div>
     </div>
